@@ -25,7 +25,7 @@ app.use(express.json());
 app.use(cookieParser());
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://grocery-app-frontend-9dt5.onrender.com"
+  "https://grocery-app-1-frontend-2.onrender.com"
 ];
 
 app.use(cors({
