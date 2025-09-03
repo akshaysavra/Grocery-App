@@ -24,7 +24,7 @@ await connectCloudinary()
 app.use(express.json());
 app.use(cookieParser());
 app.use(cors({
-  origin: "http://localhost:5173", // no array here
+  origin: "https://grocery-app-frontend-9dt5.onrender.com", // no array here
   credentials: true
 }));
 
