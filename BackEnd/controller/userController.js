@@ -21,8 +21,8 @@ export  const register = async (req,res)=>{
 
         res.cookie('token',token ,{
             httpOnly : true,//prevent js to access cookie
-            secure : process.env.NODE_ENV === "production",  //use secure cookie in production
-            sameSite:process.env.NODE_ENV === "production" ? 'none' :'strict', // use for csrf protection
+            secure : true,  //use secure cookie in production
+            sameSite:"none", // use for csrf protection
             maxAge: 7 * 24 * 60 * 60 * 1000,//cookie exipiratin time
         })
 
@@ -55,8 +55,8 @@ export const login = async (req,res)=>{
 
     res.cookie('token',token ,{
             httpOnly : true,//prevent js to access cookie
-            secure : process.env.NODE_ENV === "production",  //use secure cookie in production
-            sameSite:process.env.NODE_ENV === "production" ? 'none' :'strict', // use for csrf protection
+            secure : true,  //use secure cookie in production
+            sameSite:"none", // use for csrf protection
             maxAge: 7 * 24 * 60 * 60 * 1000,//cookie exipiratin time
         })
 
@@ -83,8 +83,8 @@ export const logout = async (req,res)=>{
     try {
         res.clearCookie('token',{
              httpOnly : true,//prevent js to access cookie
-            secure : process.env.NODE_ENV === "production",  //use secure cookie in production
-            sameSite:process.env.NODE_ENV === "production" ? 'none' :'strict', // use for csrf protection
+            secure : true,  //use secure cookie in production
+            sameSite: "none", // use for csrf protection
           
         })
         res.json({success : true , message: "logged Out"})
