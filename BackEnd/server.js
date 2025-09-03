@@ -23,8 +23,19 @@ await connectCloudinary()
 // MiddleWare Configuration 
 app.use(express.json());
 app.use(cookieParser());
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://grocery-app-frontend-9dt5.onrender.com"
+];
+
 app.use(cors({
-  origin: "https://grocery-app-frontend-9dt5.onrender.com", // no array here
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
   credentials: true
 }));
 
